@@ -53,7 +53,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         signupTV.setOnClickListener {
-            startActivity(Intent(this, SignupActivity::class.java))
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
 
