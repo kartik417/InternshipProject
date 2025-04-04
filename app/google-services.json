@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "859125117982",
+    "project_id": "onlinevotingsystemapp-ea2cd",
+    "storage_bucket": "onlinevotingsystemapp-ea2cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:859125117982:android:f1a638a2aca09f8b0caa0f",
+        "android_client_info": {
+          "package_name": "com.example.onlinevotingsystemapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2hPGuq1F0ijAuRS31ariizZBFxuVLAWY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

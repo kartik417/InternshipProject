@@ -8,10 +8,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.example.onlinevotingsystemapp" />
+                  <option name="mobileSdkAppId" value="1:859125117982:android:f1a638a2aca09f8b0caa0f" />
+                  <option name="projectId" value="onlinevotingsystemapp-ea2cd" />
+                  <option name="projectNumber" value="859125117982" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
