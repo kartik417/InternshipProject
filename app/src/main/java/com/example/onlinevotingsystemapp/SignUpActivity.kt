@@ -11,12 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class SignUpActivity : AppCompatActivity() {
 
 
     private lateinit var auth: FirebaseAuth
+    private lateinit var dbRef: DatabaseReference
 
     private lateinit var nameET: EditText
     private lateinit var phoneET: EditText
@@ -34,6 +36,8 @@ class SignUpActivity : AppCompatActivity() {
 
         auth = FirebaseAuth.getInstance()
 
+
+        dbRef = FirebaseDatabase.getInstance().getReference("voters")
         // Initialize views
         nameET = findViewById(R.id.et_name)
         phoneET = findViewById(R.id.et_phone)
@@ -59,18 +63,19 @@ class SignUpActivity : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        val userId = auth.currentUser?.uid
+                        val userId = auth.currentUser?.uid ?: ""
                         val database = FirebaseDatabase.getInstance()
-                        val reference = database.getReference("users")
+                        val reference = database.getReference("voters")
+                        val voter = Voter(userId,name,email,phone,"voter")
+                        dbRef.child(userId).setValue(voter)
+                            .addOnSuccessListener {
+                                Toast.makeText(this, "Voter Registered!", Toast.LENGTH_SHORT).show()
+                                startActivity(Intent(this, MainActivity::class.java))
+                                finish()
 
-                        val userMap = hashMapOf<String, Any>(
-                            "name" to name,
-                            "phone" to phone,
-                            "email" to email,
-                            "createdAt" to System.currentTimeMillis()
-                        )
+                            }
 
-                        reference.child(userId!!).setValue(userMap)
+
 
                         Toast.makeText(this, "Sign Up Successful!", Toast.LENGTH_SHORT).show()
                         startActivity(Intent(this, MainActivity::class.java))
