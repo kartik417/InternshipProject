@@ -73,7 +73,7 @@ class SignUpActivity : AppCompatActivity() {
                         reference.child(userId!!).setValue(userMap)
 
                         Toast.makeText(this, "Sign Up Successful!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, VotingActivity::class.java))
+                        startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     } else {
                         Toast.makeText(this, "Error: ${task.exception?.message}", Toast.LENGTH_LONG).show()
@@ -82,9 +82,11 @@ class SignUpActivity : AppCompatActivity() {
         }
 
         loginTV.setOnClickListener {
-            startActivity(Intent(this, LoginActivity::class.java))
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
             finish()
         }
+
 
 
 
